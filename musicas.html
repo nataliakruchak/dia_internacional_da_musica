@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Músicas pelo Mundo</title>
+    <link rel="stylesheet" href="efeitos.css">
+    <style>
+        .highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .highlight div:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight div h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+        }       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <a href="index.html">
+                <img src="/image(1).png" alt="Logo">
+            </a>
+        </div>
+        <div class="header-titulo">
+            <h1><a href="index.html">Música pelo Mundo</a></h1>
+        </div>
+        <div class="header-links">
+            <a href="musicas.html">Explorar</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="eventos.html">Eventos</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <p class="main-title">Músicas pelo Mundo</p>
+            <div class="content">
+                <p>Explore uma variedade de músicas de diferentes culturas e regiões. Conheça os sons que definem cada parte do mundo e descubra a beleza da diversidade musical.</p>
+                
+                <img src="imagens/dance.gif" alt="Músicas pelo Mundo">
+            </div>
+
+            <section>
+                <h2>Música na Ásia</h2>
+                <p>Explore as ricas tradições musicais da Ásia, desde os sons meditativos da Índia até as melodias vibrantes da China.</p>
+                <div class="highlight">
+                    <div onclick="openVideo('https://www.youtube.com/embed/0tVXvnC54Bk?si=Z0aQuNN4_krskXnd')">
+                        <h3>Música Tradicional Indiana</h3>
+                        <p>Conheça os ragas e talas da música clássica indiana, que desempenham um papel vital na cultura do país.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/5OA8HFUNfIk?si=sFMFZlA4ySF6ou9H')">
+                        <h3>Gagaku Japonês</h3>
+                        <p>Descubra o antigo estilo musical japonês, que é tocado em cerimônias e eventos importantes.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/TQTlCHxyuu8?si=PRs6uTfQunwqzXm_')">
+                        <h3>Pop Coreano</h3>
+                        <p>Conheça o K-pop, um fenômeno global que mistura elementos de pop ocidental com música tradicional coreana.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Música na Europa</h2>
+                <p>A Europa é um continente de grande diversidade musical, com tradições que vão da música clássica à música folk.</p>
+                <div class="highlight">
+                    <div onclick="openVideo('https://www.youtube.com/embed/4Tr0otuiQuU?si=64d_jzxFfiqT1HQA')">
+                        <h3>Música Clássica Europeia</h3>
+                        <p>Explore uma das grandes obras do famoso Beethoven, cujas músicas são fundamentais para o repertório clássico.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/CfE7jHThiUc?si=Ddrdv305kUD0hVWf')">
+                        <h3>Folclore Escocês</h3>
+                        <p>Descubra a música tradicional da Escócia, incluindo gaitas e danças folclóricas.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/EU3TMNTzSE0?si=zmHTLHTKOIZGIZEt')">
+                        <h3>Eletrônica Francesa</h3>
+                        <p>Conheça o movimento da música eletrônica que começou na França e influenciou a cena musical global.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Música na América do Norte</h2>
+                <p>Da música country americana ao jazz canadense, a América do Norte oferece uma vasta gama de estilos musicais.</p>
+                <div class="highlight">
+                    <div onclick="openVideo('https://www.youtube.com/embed/71Gt46aX9Z4?si=RwRSLMeGBN2Dud7-')">
+                        <h3>Blues Americano</h3>
+                        <p>Explore as raízes do blues, um gênero musical que teve um impacto profundo na música moderna.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/AFUl28YWVV4?si=Wyp234Ur4ndbyShw')">
+                        <h3>Música Cajun</h3>
+                        <p>Descubra os sons distintos da música cajun, que combina influências francesas e africanas.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/uoXh_CzAo10?si=Q-6O0eI7QvU_MH8e')">
+                        <h3>Música Mexicana</h3>
+                        <p>Conheça a música tradicional mexicana.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Música na América do Sul</h2>
+                <p>A América do Sul é conhecida por sua música vibrante, que reflete a diversidade cultural e histórica da região.</p>
+                <div class="highlight">
+                    <div onclick="openVideo('https://www.youtube.com/embed/YdMn8xzCOS0?si=4S6H5MJ9GXfZyIqx')">
+                        <h3>Samba e Bossa Nova</h3>
+                        <p>Explore os ritmos do samba e da bossa nova, que têm raízes profundas no Brasil.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/52Wel9vNZzE?si=e0LV-esG1gAokrf0')">
+                        <h3>Folklore Andino</h3>
+                        <p>Descubra as tradições musicais dos Andes, que incluem instrumentos como a quena e o siku.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/Gcxv7i02lXc?si=WdkBUyqt-mK2Wlpu')">
+                        <h3>Tango Argentino</h3>
+                        <p>Conheça a música e dança do tango, que é um símbolo da cultura argentina.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Música na Oceania</h2>
+                <p>A Oceania, com suas diversas culturas indígenas e influências modernas, oferece uma rica tapeçaria musical.</p>
+                <div class="highlight">
+                    <div onclick="openVideo('https://www.youtube.com/embed/yG9ZX1FS20A?si=tlVfbBo7JrioDp-1')">
+                        <h3>Música Aborígene Australiana</h3>
+                        <p>Explore os sons tradicionais da música aborígene, que utilizam instrumentos únicos como o didgeridoo.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/M0pWejAnLUQ?si=nU5YSUIMeja3_B2n')">
+                        <h3>Pop Neozelandês</h3>
+                        <p>Conheça a cena musical pop da Nova Zelândia, que mistura influências locais e internacionais.</p>
+                    </div>
+                    <div onclick="openVideo('https://www.youtube.com/embed/-LAZ1GCM9ho?si=Ch_3ujWff2oG1jur')">
+                        <h3>Polinésia Francesa</h3>
+                        <p>Descubra as tradições musicais das ilhas da Polinésia, que incluem danças e canções vibrantes.</p>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Música pelo Mundo. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">&times;</span>
+            <iframe id="modalVideo" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        function openVideo(videoUrl) {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+
+            modal.style.display = 'flex';
+
+            setTimeout(() => {
+                modalVideo.src = videoUrl;
+            }, 1); //delay
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modal.style.display = 'none';
+            modalVideo.src = '';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === document.getElementById('videoModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+<script>
+    const logo = document.getElementById('logo');
+
+    function generateNote() {
+        const note = document.createElement('span');
+        note.classList.add('note');
+
+        const notesArray = ['♪', '♫', '♬', '♩'];
+        note.innerText = notesArray[Math.floor(Math.random() * notesArray.length)];
+
+        const logoRect = logo.getBoundingClientRect();
+        const posX = Math.random() * logoRect.width;
+        note.style.left = `${posX}px`;
+        note.style.top = `${logoRect.height}px`;
+
+        logo.appendChild(note);
+
+        setTimeout(() => {
+            note.remove();
+        }, 2000);
+    }
+
+    logo.addEventListener('mouseenter', () => {
+        const intervalId = setInterval(generateNote, 300);
+
+        logo.addEventListener('mouseleave', () => {
+            clearInterval(intervalId);
+        });
+    });
+</script>
+
+</body>
+</html>

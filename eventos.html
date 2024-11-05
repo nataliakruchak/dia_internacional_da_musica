@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Eventos Musicais - Música pelo Mundo</title>
+    <link rel="stylesheet" href="efeitos.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" id="logo">
+            <a href="index.html">
+                <img src="/image(1).png" alt="Logo">
+            </a>
+        </div>
+        <div class="header-titulo">
+            <h1><a href="index.html">Música pelo Mundo</a></h1>
+        </div>
+        <div class="header-links">
+            <a href="musicas.html">Explorar</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="eventos.html">Eventos</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="event-section">
+            <p class="main-title">Eventos Musicais Globais<br></p>
+            <div class="content">
+                <p>Saiba mais sobre os eventos musicais mais emocionantes ao redor do mundo. Mergulhe em experiências sonoras únicas e participe de festivais que celebram a diversidade musical global.</p><br><br><br>
+            </div>
+            <ul class="event-list">
+                <li>
+                    <h3>Festival de Música de Montreux</h3>
+                    <p><strong>Data:</strong> 1 a 16 de julho de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Montreux,+Suíça" target="_blank">Montreux, Suíça</a></p>                    <p>Um dos festivais de música mais renomados do mundo, celebrando gêneros desde jazz até rock e pop.</p>
+                </li>
+                <li>
+                    <h3>Coachella</h3>
+                    <p><strong>Data:</strong> 12 a 14 de abril de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Coachella,+Califórnia,+EUA" target="_blank">Califórnia, EUA</a></p>
+                    <p>Um dos maiores festivais de música e arte, destacando artistas de todos os gêneros e estilos.</p>
+                </li>
+                <li>
+                    <h3>Rock in Rio</h3>
+                    <p><strong>Data:</strong> 27 de setembro a 6 de outubro de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Rio+de+Janeiro,+Brasil" target="_blank">Rio de Janeiro, Brasil</a></p>                     
+                    <p>Este festival lendário traz grandes nomes do rock e pop, em um dos maiores eventos de música do mundo.</p>
+                </li>
+               
+                <li>
+                    <h3>Glastonbury</h3>
+                    <p><strong>Data:</strong> 26 a 30 de junho de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Somerset,+Reino+Unido" target="_blank">Somerset, Reino Unido</a></p>
+                    <p>Um dos festivais mais icônicos do mundo, apresentando uma mistura de música, arte e performances ao vivo.</p>
+                </li>
+                <li>
+                    <h3>Tomorrowland</h3>
+                    <p><strong>Data:</strong> 19 a 21 e 26 a 28 de julho de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Boom,+Bélgica" target="_blank">Boom, Bélgica</a></p>
+                    <p>O maior festival de música eletrônica, conhecido por suas produções elaboradas e lineup de DJs renomados mundialmente.</p>
+                </li>
+                <li>
+                    <h3>Primavera Sound</h3>
+                    <p><strong>Data:</strong> 30 de maio a 1 de junho de 2024</p>
+                    <p><strong>Local:</strong> <a href="https://www.google.com/maps/place/Barcelona,+Espanha" target="_blank">Barcelona, Espanha</a></p>
+                    <p>Com foco em música independente, o Primavera Sound atrai fãs de todo o mundo com sua curadoria inovadora e diversa.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Música pelo Mundo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const logo = document.getElementById('logo');
+
+        function generateNote() {
+            const note = document.createElement('span');
+            note.classList.add('note');
+
+            const notesArray = ['♪', '♫', '♬', '♩'];
+            note.innerText = notesArray[Math.floor(Math.random() * notesArray.length)];
+
+            const logoRect = logo.getBoundingClientRect();
+            const posX = Math.random() * logoRect.width;
+            note.style.left = `${posX}px`;
+            note.style.top = `${logoRect.height}px`;
+
+            logo.appendChild(note);
+
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        logo.addEventListener('mouseenter', () => {
+            const intervalId = setInterval(generateNote, 300);
+
+            logo.addEventListener('mouseleave', () => {
+                clearInterval(intervalId);
+            });
+        });
+    </script>
+
+</body>
+</html>

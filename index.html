@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Música pelo Mundo</title>
+    <link rel="stylesheet" href="efeitos.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <a href="index.html">
+                <img src="/image(1).png" >
+            </a>
+        </div>
+        
+        <div class="header-titulo">
+            <h1><a href="index.html">Música pelo Mundo</a></h1>
+        </div>
+
+        <div class="header-links">
+            <a href="musicas.html">Explorar</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="eventos.html">Eventos</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="intro">
+                <p class="main-title">Dia Internacional da Música</p> 
+                <p>Celebrando a diversidade da música ao redor do mundo. Explore, aprenda e compartilhe sua paixão pela música!</p>
+
+                <img src="imagens/Designer(2).jpeg">
+            </div>
+
+            <div class="highlight">
+                <div>
+                    <a href="musicas.html">
+                        <h2>Músicas pelo Mundo</h2>
+                        <p>Descubra músicas de diferentes culturas e regiões, explorando sons tradicionais e modernos.</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="artistas.html">
+                        <h2>Artistas em Destaque</h2>
+                        <p>Conheça artistas que moldaram a história da música e novas revelações que estão inovando no cenário musical.</p>
+                    </a>
+                </div>
+                <div>
+                    <a href="eventos.html">
+                        <h2>Eventos</h2>
+                        <p>Fique por dentro dos eventos musicais ao vivo e virtuais que estão acontecendo ao redor do mundo.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Música pelo Mundo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const logo = document.getElementById('logo');
+
+        function generateNote() {
+            const note = document.createElement('span');
+            note.classList.add('note');
+
+            const notesArray = ['♪', '♫', '♬', '♩'];
+            note.innerText = notesArray[Math.floor(Math.random() * notesArray.length)];
+
+            const logoRect = logo.getBoundingClientRect();
+            const posX = Math.random() * logoRect.width;
+            note.style.left = `${posX}px`;
+            note.style.top = `${logoRect.height}px`;
+
+            logo.appendChild(note);
+
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        logo.addEventListener('mouseenter', () => {
+            const intervalId = setInterval(generateNote, 300);
+
+            logo.addEventListener('mouseleave', () => {
+                clearInterval(intervalId);
+            });
+        });
+    </script>
+</body>
+</html>

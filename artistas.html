@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Músicas pelo Mundo</title>
+    <link rel="stylesheet" href="efeitos.css">
+    <style>
+        .highlight {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .highlight div {
+            cursor: pointer;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #fffef5;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .highlight div:hover {
+            transform: scale(1.05);
+        }
+
+        .highlight div h3 {
+            font-size: 1.2em;
+            margin: 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 600px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" id="logo">
+            <a href="index.html">
+                <img src="/image(1).png" alt="Logo">
+            </a>
+        </div>
+        <div class="header-titulo">
+            <h1><a href="index.html">Música pelo Mundo</a></h1>
+        </div>
+        <div class="header-links">
+            <a href="musicas.html">Explorar</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="eventos.html">Eventos</a>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <p class="main-title">Artistas</p>
+            <div class="content">
+                <p>Descubra os artistas que estão moldando a música global com suas inovações e estilos únicos.<br>Nossa coleção apresenta uma variedade de talentos, desde lendas da música tradicional até estrelas contemporâneas que estão redefinindo o cenário musical.</p>
+                
+                <img src="imagens/artista.png" alt="Músicas pelo Mundo" style="border-radius: 15px;">
+            </div>
+
+            <section>
+                <h2>Artistas Destacados</h2>
+                <div class="highlight">
+                    <div onclick="openArtist('Adele')">
+                        <h3>Adele</h3>
+                    </div>
+                    <div onclick="openArtist('Angelique Kidjo')">
+                        <h3>Angelique Kidjo</h3>
+                    </div>
+                    <div onclick="openArtist('Anoushka Shankar')">
+                        <h3>Anoushka Shankar</h3>
+                    </div>
+                    <div onclick="openArtist('Björk')">
+                        <h3>Björk</h3>
+                    </div>
+                    <div onclick="openArtist('Bob Dylan')">
+                        <h3>Bob Dylan</h3>
+                    </div>
+                    <div onclick="openArtist('Caetano Veloso')">
+                        <h3>Caetano Veloso</h3>
+                    </div>
+                    <div onclick="openArtist('David Bowie')">
+                        <h3>David Bowie</h3>
+                    </div>
+                    <div onclick="openArtist('Diana Ross')">
+                        <h3>Diana Ross</h3>
+                    </div>
+                    <div onclick="openArtist('Ed Sheeran')">
+                        <h3>Ed Sheeran</h3>
+                    </div>
+                    <div onclick="openArtist('Fela Kuti')">
+                        <h3>Fela Kuti</h3>
+                    </div>
+                    <div onclick="openArtist('Janelle Monáe')">
+                        <h3>Janelle Monáe</h3>
+                    </div>
+                    <div onclick="openArtist('Kanye West')">
+                        <h3>Kanye West</h3>
+                    </div>
+                    <div onclick="openArtist('Lana Del Rey')">
+                        <h3>Lana Del Rey</h3>
+                    </div>
+                    <div onclick="openArtist('M.I.A.')">
+                        <h3>M.I.A.</h3>
+                    </div>
+                    <div onclick="openArtist('Shakira')">
+                        <h3>Shakira</h3>
+                    </div>
+                    <div onclick="openArtist('Sia')">
+                        <h3>Sia</h3>
+                    </div>
+                    <div onclick="openArtist('Tina Turner')">
+                        <h3>Tina Turner</h3>
+                    </div>
+                    <div onclick="openArtist('Youssou N\'Dour')">
+                        <h3>Youssou N'Dour</h3>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <div id="artistModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</span>
+            <h2 id="artistName"></h2>
+            <p id="artistDescription"></p>
+            <img id="artistImage" src="" alt="Imagem do artista">
+        </div>
+    </div>
+
+    <script>
+        const artistDetails = {
+            'Adele': {
+                description: 'Adele é uma cantora britânica conhecida por sua poderosa voz e baladas emocionais que conquistaram o mundo.',
+                image: 'imagens/adele.webp'
+            },
+            'Angelique Kidjo': {
+                description: 'A cantora de Benin, Angelique Kidjo, é uma das vozes mais influentes da música africana, conhecida por misturar tradições locais com sons internacionais.',
+                image: 'imagens/AngeliqueKidjo.webp'
+            },
+            'Anoushka Shankar': {
+                description: 'A filha do famoso Ravi Shankar, Anoushka, tem revolucionado a música clássica indiana com um toque contemporâneo, tocando seu sitar em concertos ao redor do mundo.',
+                image: 'imagens/AnoushkaShankar.jpg'
+            },
+            'Björk': {
+                description: 'A artista islandesa Björk é famosa por sua música experimental e performances excêntricas, tornando-a uma das artistas mais únicas da cena musical mundial.',
+                image: 'imagens/Björk.jpg'
+            },
+            'Bob Dylan': {
+                description: 'Bob Dylan é um ícone do folk e do rock, conhecido por suas letras poéticas e impacto significativo na música e na cultura.',
+                image: 'imagens/BobDylan.jpeg'
+            },
+            'Caetano Veloso': {
+                description: 'O brasileiro Caetano Veloso é um dos grandes nomes da Tropicália e da música popular brasileira, reconhecido por sua inovação e criatividade.',
+                image: 'imagens/CaetanoVeloso.webp'
+            },
+            'David Bowie': {
+                description: 'David Bowie foi um ícone do rock e da música popular, conhecido por sua inovação artística e estilo inconfundível.',
+                image: 'imagens/DavidBowie.jpg'
+            },
+            'Diana Ross': {
+                description: 'Diana Ross, ex-líder das Supremes, é uma lenda da música pop e soul, conhecida por sua carreira solo brilhante e impacto na cultura musical.',
+                image: 'imagens/DianaRoss.webp'
+            },
+            'Ed Sheeran': {
+                description: 'O cantor britânico Ed Sheeran é famoso por suas baladas emocionais e seu estilo único de tocar violão, dominando as paradas mundiais com seus sucessos.',
+                image: 'imagens/EdSheeran.jpg'
+            },
+            'Fela Kuti': {
+                description: 'Fela Kuti, do Nigéria, foi um inovador do gênero afrobeat, conhecido por suas performances energéticas e letras politizadas.',
+                image: 'imagens/FelaKuti.jpg'
+            },
+            'Janelle Monáe': {
+                description: 'Janelle Monáe é uma artista americana conhecida por sua mistura de funk, soul e pop, além de seu estilo visual inovador.',
+                image: 'imagens/Janelle.jpg'
+            },
+            'Kanye West': {
+                description: 'Kanye West é um rapper, produtor e designer americano, conhecido por suas inovações na música e na moda, além de seu estilo provocativo.',
+                image: 'imagens/KanyeWest.jpg'
+            },
+            'Lana Del Rey': {
+                description: 'Lana Del Rey é uma cantora e compositora americana conhecida por seu estilo cinematográfico e suas letras melancólicas.',
+                image: 'imagens/lana-del-rey.jpg'
+            },
+            'M.I.A.': {
+                description: 'M.I.A. é uma artista britânica com origens no Sri Lanka, conhecida por sua fusão de música eletrônica e influências de hip-hop e world music.',
+                image: 'imagens/M.I.A..jpg'
+            },
+            'Shakira': {
+                description: 'Shakira, a cantora e compositora colombiana, conquistou o mundo com sua mistura de pop latino, ritmos caribenhos e uma voz inconfundível.',
+                image: 'imagens/Shakira.jpg'
+            },
+            'Sia': {
+                description: 'Sia é uma cantora e compositora australiana conhecida por suas músicas cativantes e seu estilo vocal distintivo.',
+                image: 'imagens/Sia.jpg'
+            },
+            'Tina Turner': {
+                description: 'Tina Turner é uma lenda do rock e soul, conhecida por sua energia de performance e uma carreira que abrange décadas de sucesso.',
+                image: 'imagens/TinaTurner.webp'
+            },
+            'Youssou N\'Dour': {
+                description: 'Um dos músicos mais renomados da África, Youssou N\'Dour é conhecido por misturar o estilo tradicional senegalês com influências pop, criando hits globais.',
+                image: 'imagens/Youssou.jpg'
+            }
+        };
+
+        function openArtist(artistName) {
+            const modal = document.getElementById('artistModal');
+            const artistNameElement = document.getElementById('artistName');
+            const artistDescriptionElement = document.getElementById('artistDescription');
+            const artistImageElement = document.getElementById('artistImage');
+            
+            artistNameElement.innerText = artistName;
+            artistDescriptionElement.innerText = artistDetails[artistName].description;
+            artistImageElement.src = artistDetails[artistName].image;
+
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('artistModal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('artistModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+        
+        const logo = document.getElementById('logo');
+
+        function generateNote() {
+            const note = document.createElement('span');
+            note.classList.add('note');
+
+            const notesArray = ['♪', '♫', '♬', '♩'];
+            note.innerText = notesArray[Math.floor(Math.random() * notesArray.length)];
+
+            const logoRect = logo.getBoundingClientRect();
+            const posX = Math.random() * logoRect.width;
+            note.style.left = `${posX}px`;
+            note.style.top = `${logoRect.height}px`;
+
+            logo.appendChild(note);
+
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        logo.addEventListener('mouseenter', () => {
+            const intervalId = setInterval(generateNote, 300);
+
+            logo.addEventListener('mouseleave', () => {
+                clearInterval(intervalId);
+            });
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2024 Música pelo Mundo. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
